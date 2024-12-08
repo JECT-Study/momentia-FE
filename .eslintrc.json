@@ -5,7 +5,6 @@
     "airbnb",
     "airbnb/hooks",
     "plugin:@typescript-eslint/recommended"
-    "plugin:@typescript-eslint/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "plugins": [
@@ -14,18 +13,12 @@
     "react-hooks",
     "simple-import-sort",
     "prettier"
-    "simple-import-sort",
-    "prettier"
   ],
   "rules": {
     "prettier/prettier": "error",
-    "prettier/prettier": "error",
     "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "off",
-    "react/jsx-props-no-spreading": "off",
     "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
-    "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error",
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
     "import/extensions": [
@@ -35,7 +28,6 @@
         "ts": "never",
         "tsx": "never"
       }
-    ]
     ]
   },
   "settings": {
