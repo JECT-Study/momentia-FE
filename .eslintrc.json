@@ -28,7 +28,15 @@
         "ts": "never",
         "tsx": "never"
       }
+<<<<<<< HEAD
     ]
+=======
+    ],
+    "import/order": "off",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "jsx-quotes": ["error", "prefer-single"]
+>>>>>>> a6191fa (chore: clone 중 누락된 파일 재생성)
   },
   "settings": {
     "import/resolver": {
