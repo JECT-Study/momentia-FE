@@ -30,7 +30,7 @@
         "tsx": "never"
       }
     ],
-    "import/order": "off", // import/order 규칙 비활성화
+    "import/order": "off",
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
     "jsx-quotes": ["error", "prefer-single"]
