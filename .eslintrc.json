@@ -3,6 +3,7 @@
     "next",
     "next/core-web-vitals",
     "airbnb",
+    "airbnb/hooks",
     "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
@@ -13,7 +14,31 @@
     "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "off",
     "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
-    "simple-import-sort/imports": "error",
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          ["^node:"], // Node.js 빌트인 모듈
+          ["^@?\\w"], // 외부 라이브러리
+          ["^\\u0000"],
+          [
+            // 내부 모듈 (절대 경로)
+            "^@?src/",
+            "^@?apis/",
+            "^@?components/",
+            "^@?constants/",
+            "^@?hooks/",
+            "^@?lib/",
+            "^@?stores/",
+            "^@?utils/",
+            "^@?types/"
+          ],
+          ["^\\.\\.(?!/?$)", "^\\.\\./?$"], // 상대 경로
+          ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+          ["^.+\\.?(css|scss)$"] // 스타일 파일
+        ]
+      }
+    ],
     "simple-import-sort/exports": "error",
     "import/extensions": [
       "error",
