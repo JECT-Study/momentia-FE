@@ -3,6 +3,7 @@
     "next",
     "next/core-web-vitals",
     "airbnb",
+    "airbnb/hooks",
     "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
@@ -15,6 +16,9 @@
     "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "import/no-duplicates": "error",
     "import/extensions": [
       "error",
       "ignorePackages",
