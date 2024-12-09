@@ -1,8 +1,6 @@
-import '../styles/globals.css';
-
-import React from 'react';
 import type { Metadata } from 'next';
-
+import React from 'react';
+import '../styles/globals.css';
 import ReactQueryProvider from './ReactQueryProvider';
 
 export const metadata: Metadata = {
