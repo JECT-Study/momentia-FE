@@ -85,4 +85,10 @@
   .button-s {
     font-weight: 500; /* Medium */
   }
+
+  svg {
+    display: inline-block;
+    vertical-align: middle;
+    fill: currentColor; /* 텍스트 색상과 동일하게 적용 */
+  }
 }

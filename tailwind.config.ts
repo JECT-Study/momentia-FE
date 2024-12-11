@@ -38,6 +38,11 @@ export default {
           subtitle: '#F5F5F5',
         },
       },
+      spacing: {
+        '4.5': '18px',
+        '7.5': '30px',
+        '15': '60px',
+      },
     },
   },
   plugins: [],
