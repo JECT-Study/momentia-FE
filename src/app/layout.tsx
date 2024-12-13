@@ -6,6 +6,8 @@ import '../styles/globals.css';
 
 import ReactQueryProvider from './ReactQueryProvider';
 
+import AppShell from './layout/AppShell';
+
 const PretendardRegular = localFont({
   src: './fonts/Pretendard-Regular.woff',
   variable: '--font-geist-sans',
@@ -26,7 +28,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={`${PretendardRegular.variable}`}>
-        <ReactQueryProvider>{children}</ReactQueryProvider>
+        <ReactQueryProvider>
+          <AppShell>{children}</AppShell>
+        </ReactQueryProvider>
       </body>
     </html>
   );
