@@ -9,6 +9,10 @@
     line-height: normal; /* 행간 자동 */
   }
 
+  body {
+    padding-top: 60px;
+  }
+
   p {
     line-height: 1.6; /* 160% */
   }
