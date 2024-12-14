@@ -8,7 +8,7 @@ on:
 
 jobs:
   lint-build-test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
     - name: Checkout code
@@ -56,7 +56,7 @@ jobs:
       uses: johnnyhuy/actions-discord-git-webhook@main
       with:
         webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
-        message: |
+        args: |
           🚨 **Lint/Build/Test Workflow 실패** 🚨
 
           **Repository**: ${{ github.repository }}
