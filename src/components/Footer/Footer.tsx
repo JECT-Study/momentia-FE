@@ -5,17 +5,17 @@ import logo from '../../../public/images/momentiaLogoSymbol.png';
 
 const Footer = () => {
   return (
-    <footer className="bg-background-base text-sm text-white px-14 py-24">
-      <Link href="/">
-        <Image src={logo} alt="모멘티아 로고" width={45} priority />
+    <footer className='bg-background-base text-sm text-white px-14 py-24'>
+      <Link href='/'>
+        <Image src={logo} alt='모멘티아 로고' width={45} priority />
       </Link>
 
-      <div className="flex flex-wrap wrap-reverse items-center mt-10">
-        <div className="w-full">
-          <p className="mb-2">Exhibitions, for Artists' Moments</p>
-          <div className="flex flex-col justify-between md:flex-row">
+      <div className='flex flex-wrap wrap-reverse items-center mt-10'>
+        <div className='w-full'>
+          <p className='mb-2'>Exhibitions, for Artists' Moments</p>
+          <div className='flex flex-col justify-between md:flex-row'>
             <p>예술가들을 위한 순간, 모멘티아</p>
-            <div className="flex md:gap-16 gap-10 md:mt-0 mt-8">
+            <div className='flex md:gap-16 gap-10 md:mt-0 mt-8'>
               <button>이용약관</button>
               <button>개인정보처리방침</button>
             </div>

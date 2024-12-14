@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint . --ext .js,.jsx,.ts,.tsx",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
     "@tanstack/react-query": "^5.62.3",
