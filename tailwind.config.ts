@@ -32,10 +32,10 @@ export default {
           100: '#F5F5F5',
           50: '#FAFAFA',
         },
+        title: '#FFFFFF',
+        subtitle: '#F5F5F5',
         background: {
           base: '#101010',
-          title: '#FFFFFF',
-          subtitle: '#F5F5F5',
         },
       },
       spacing: {
