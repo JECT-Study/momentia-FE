@@ -6,7 +6,7 @@ import '../styles/globals.css';
 
 import ReactQueryProvider from './ReactQueryProvider';
 
-import AppShell from './layout/AppShell';
+import AppShell from '../components/Layout/AppShell';
 
 const PretendardRegular = localFont({
   src: './fonts/Pretendard-Regular.woff',
