@@ -16,7 +16,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className='fixed top-0 w-full flex items-center bg-background-base text-sm text-white px-14 py-5 h-[60px]'>
+      <nav className='fixed top-0 w-full flex items-center bg-black text-sm text-white px-14 py-5 h-[60px]'>
         <div className='absolute left-14'>
           <Link href='/'>
             <Image src={logo} alt='모멘티아 로고' width={45} priority />
