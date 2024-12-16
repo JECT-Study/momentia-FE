@@ -1,12 +1,18 @@
+'use client';
+
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
+
+import { NextUIProvider } from '@nextui-org/react';
 
 const AppShell = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-      <Navbar />
-      <main>{children}</main>
-      <Footer />
+      <NextUIProvider>
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
+      </NextUIProvider>
     </>
   );
 };
