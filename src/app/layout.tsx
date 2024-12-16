@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import React from 'react';
 import '../styles/globals.css';
 import ReactQueryProvider from './ReactQueryProvider';
+import MSWProvider from './providers/MSWProvider';
 
 export const metadata: Metadata = {
   title: '',
@@ -16,7 +17,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
-        <ReactQueryProvider>{children}</ReactQueryProvider>
+        <MSWProvider>
+          <ReactQueryProvider>{children}</ReactQueryProvider>
+        </MSWProvider>
       </body>
     </html>
   );
