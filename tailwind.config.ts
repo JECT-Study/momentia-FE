@@ -47,6 +47,17 @@ export default {
       },
     },
   },
-  darkMode: 'class',
-  plugins: [nextui()],
+  plugins: [
+    nextui({
+      themes: {
+        'custom-dark': {
+          extend: 'dark', // 다크 모드 기본값 상속받음
+          colors: {
+            background: '#101010', // 다크 모드 배경색
+            foreground: '#FFFFFF', // 텍스트 기본 색상
+          },
+        },
+      },
+    }),
+  ],
 } satisfies Config;
