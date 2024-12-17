@@ -6,7 +6,11 @@ import React, { useEffect, useState } from 'react';
 
 import Icon from '../Icon/Icon';
 
-const EmailInput = () => {
+export interface EmailInputProps {
+  mode: 'sign-up' | 'sign-in';
+}
+
+const EmailInput = ({ mode }: EmailInputProps) => {
   const [value, setValue] = useState('');
   const [message, setMessage] = useState('');
   const [messageColor, setMessageColor] = useState('');
@@ -16,15 +20,22 @@ const EmailInput = () => {
 
   const checkEmailStatus = (email: string) => {
     // TODO: 여기에 이메일 상태를 확인하는 API 호출 로직 추가
-    if (email === 'used@example.com') {
-      setMessage('이미 가입된 계정입니다.');
-      setMessageColor('text-system-error');
-    } else if (email === 'momentia@example.com') {
-      setMessage('사용 가능한 이메일입니다.');
-      setMessageColor('text-system-success');
-    } else {
-      setMessage('가입되어 있지 않은 이메일입니다.');
-      setMessageColor('text-system-error');
+
+    if (mode === 'sign-up') {
+      if (email === 'used@example.com') {
+        setMessage('이미 가입된 계정입니다.');
+        setMessageColor('text-system-error');
+      } else {
+        setMessage('사용 가능한 이메일입니다.');
+        setMessageColor('text-system-success');
+      }
+    } else if (mode === 'sign-in') {
+      if (email === 'used@example.com') {
+        setMessage('');
+      } else {
+        setMessage('가입되어 있지 않은 이메일입니다.');
+        setMessageColor('text-system-error');
+      }
     }
   };
 
@@ -43,7 +54,7 @@ const EmailInput = () => {
     } else {
       setMessage('');
     }
-  }, [value, isInvalid]);
+  }, [value, isInvalid, mode]);
 
   return (
     <>
