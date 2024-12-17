@@ -57,6 +57,11 @@
     font-size: 1rem; /* 16px */
   }
 
+  .custom-label {
+    font-size: 1rem; /* 16px */
+    font-weight: 500; /* Medium */
+  }
+
   .small-chip {
     font-size: 0.875rem; /* 14px */
   }
