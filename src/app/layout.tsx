@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 import React from 'react';
+
 import '../styles/globals.css';
+
+import MSWProvider from './providers/MSWProvider';
 import ReactQueryProvider from './ReactQueryProvider';
 import MSWProvider from './providers/MSWProvider';
 
