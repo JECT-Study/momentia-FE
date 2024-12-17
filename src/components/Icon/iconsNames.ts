@@ -35,7 +35,10 @@ import Search from './icons/Search';
 import Star from './icons/Star';
 import UploadShare from './icons/UploadShare';
 
-export const iconsNames: Record<string, React.FC<{ className?: string }>> = {
+export const iconsNames: Record<
+  string,
+  React.FC<{ className?: string; onClick?: () => void }>
+> = {
   AlertCircle,
   AlternateShare,
   ArrowLeft,

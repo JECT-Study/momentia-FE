@@ -5,4 +5,5 @@ export interface IconProps {
   name: keyof typeof iconsNames;
   size?: IconSize;
   className?: string;
+  onClick?: () => void;
 }

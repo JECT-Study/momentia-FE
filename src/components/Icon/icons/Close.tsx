@@ -1,7 +1,13 @@
-const Close = ({ className }: { className?: string }) => {
+import React from 'react';
+
+const Close: React.FC<{ className?: string; onClick?: () => void }> = ({
+  className,
+  onClick,
+}) => {
   return (
     <svg
       className={className}
+      onClick={onClick}
       viewBox='0 0 30 30'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
