@@ -24,7 +24,7 @@ const Navbar = () => {
         </div>
 
         <div className='hidden lg:flex justify-center w-full'>
-          <ul className='flex gap-20'>
+          <ul className='button-m flex gap-20 text-gray-100'>
             <li className='hover:text-gray-300 cursor-pointer'>작품</li>
             <li className='hover:text-gray-300 cursor-pointer'>전시회</li>
             <li className='hover:text-gray-300 cursor-pointer'>커뮤니티</li>
@@ -32,21 +32,21 @@ const Navbar = () => {
         </div>
 
         <div className='absolute right-14 flex items-center gap-7'>
+          {/* TODO: 로그인 상태에 따라 Notification 버튼, 로그인/회원가입 버튼 다르게 보이도록 처리 */}
+          <Icon name='Notification' size='l' className='text-white' />
           <div className='hidden lg:flex items-center gap-7'>
-            <Icon name='Notification' size='m' className='white' />
             <div className='rounded-full bg-white w-8 h-8'></div>
             <button className='bg-main px-6 py-2 rounded-full text-white'>
               작품 업로드
             </button>
-            {/* <button>로그인/회원가입</button> */}
+            {/* <button className='button-m text-white' >로그인/회원가입</button> */}
           </div>
-
-          <button
-            className='lg:hidden text-white focus:outline-none'
+          <Icon
+            name='Menu'
+            size='l'
             onClick={toggleMenu}
-          >
-            <Icon name='Menu' size='m' />
-          </button>
+            className='lg:hidden text-white focus:outline-none'
+          />
         </div>
       </nav>
 
@@ -59,24 +59,24 @@ const Navbar = () => {
             className='absolute top-0 right-0 bg-background-base text-white w-3/4 h-full p-8 flex flex-col justify-between'
             onClick={(e) => e.stopPropagation()}
           >
-            <button
-              className='absolute top-6 left-6 text-white text-2xl'
+            <Icon
+              name='Close'
+              size='l'
               onClick={toggleMenu}
-            >
-              &times;
-            </button>
+              className='absolute top-6 left-6 text-white'
+            />
 
             <div className='ml-10'>
               <div className='flex-col space-y-1'>
-                {/* <button className="text-lg">로그인/회원가입</button> */}
-                <p className='text-lg'>닉네임</p>
-                <p className='text-sm text-gray-500'>momentia@gmail.com</p>
+                {/* <button className='button-m text-white' >로그인/회원가입</button> */}
+                <p className='button-m text-white'>닉네임</p>
+                <p className='button-m text-gray-500'>momentia@gmail.com</p>
                 <button className='text-main pt-3'>작품 업로드</button>
               </div>
 
               <div className='border-t border-gray-800 my-6'></div>
 
-              <ul className='space-y-6 text-lg mt-6'>
+              <ul className='button-m space-y-6 text-lg mt-6 text-gray-100'>
                 <li className='hover:text-gray-300 cursor-pointer'>작품</li>
                 <li className='hover:text-gray-300 cursor-pointer'>전시회</li>
                 <li className='hover:text-gray-300 cursor-pointer'>커뮤니티</li>
@@ -84,7 +84,7 @@ const Navbar = () => {
             </div>
 
             <div className='ml-10'>
-              <button>로그아웃</button>
+              <button className='text-gray-300'>로그아웃</button>
             </div>
           </div>
         </div>
