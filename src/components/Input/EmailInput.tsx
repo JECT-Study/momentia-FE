@@ -56,6 +56,10 @@ const EmailInput = ({ mode }: EmailInputProps) => {
     }
   }, [value, isInvalid, mode]);
 
+  const handleEmailFieldClear = () => {
+    setValue('');
+  };
+
   return (
     <>
       <Input
@@ -72,6 +76,7 @@ const EmailInput = ({ mode }: EmailInputProps) => {
           input: 'placeholder:text-gray-700',
           inputWrapper: ['bg-gray-900', 'rounded-md'],
         }}
+        onClear={handleEmailFieldClear}
       />
       {message && (
         <div className='flex items-center mt-2'>
