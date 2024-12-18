@@ -5,7 +5,7 @@ import logo from '../../../public/images/momentiaLogoSymbol.png';
 
 const Footer = () => {
   return (
-    <footer className='bg-black text-sm text-white px-14 py-24'>
+    <footer className='bg-black text-white px-14 py-24'>
       <Link href='/'>
         <Image src={logo} alt='모멘티아 로고' width={45} priority />
       </Link>
