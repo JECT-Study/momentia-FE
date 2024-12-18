@@ -17,8 +17,7 @@ const EmailInput = ({ mode }: EmailInputProps) => {
     /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
 
   const checkEmailStatus = (email: string) => {
-    // TODO: 여기에 이메일 상태를 확인하는 API 호출 로직 추가
-
+    // TODO: 이메일 상태 확인 (API 호출 로직 추가)
     if (mode === 'sign-up') {
       if (email === 'used@example.com') {
         setValidationMessage('이미 가입된 계정입니다.');
@@ -39,7 +38,6 @@ const EmailInput = ({ mode }: EmailInputProps) => {
 
   const isEmailInvalid = useMemo(() => {
     if (email === '') return false;
-
     return !isEmailValid(email);
   }, [email]);
 

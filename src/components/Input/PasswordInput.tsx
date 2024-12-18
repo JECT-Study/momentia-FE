@@ -22,7 +22,6 @@ const PasswordInput = () => {
 
   const isPasswordInvalid = useMemo(() => {
     if (password === '') return false;
-
     return !isPasswordValid(password);
   }, [password]);
 
