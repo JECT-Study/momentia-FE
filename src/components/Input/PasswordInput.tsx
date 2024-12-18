@@ -57,9 +57,8 @@ const PasswordInput = () => {
         }}
         endContent={
           <button
-            aria-label='toggle password visibility'
-            className='focus:outline-none'
             type='button'
+            aria-label='toggle password visibility'
             onClick={togglePasswordVisibility}
             disabled={password === ''}
           >
@@ -67,13 +66,13 @@ const PasswordInput = () => {
               <Icon
                 name='Eye'
                 size='m'
-                className={`text-gray-200 ${password === '' ? 'opacity-50' : ''}`}
+                className={`text-gray-200 ${password === '' ? 'text-gray-800' : ''}`}
               />
             ) : (
               <Icon
                 name='EyeOff'
                 size='m'
-                className={`text-gray-200 ${password === '' ? 'opacity-50' : ''}`}
+                className={`text-gray-200 ${password === '' ? 'text-gray-800' : ''}`}
               />
             )}
           </button>
