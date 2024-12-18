@@ -4,7 +4,9 @@ import React from 'react';
 
 import '../styles/globals.css';
 
+import MSWProvider from './providers/MSWProvider';
 import ReactQueryProvider from './ReactQueryProvider';
+import MSWProvider from './providers/MSWProvider';
 
 import AppShell from '../components/Layout/AppShell';
 
@@ -28,9 +30,11 @@ export default function RootLayout({
   return (
     <html lang='ko'>
       <body className={`${PretendardRegular.variable}`}>
-        <ReactQueryProvider>
-          <AppShell>{children}</AppShell>
-        </ReactQueryProvider>
+        <MSWProvider>
+          <ReactQueryProvider>
+            <AppShell>{children}</AppShell>
+          </ReactQueryProvider>
+        </MSWProvider>
       </body>
     </html>
   );
