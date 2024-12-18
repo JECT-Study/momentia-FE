@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import localFont from 'next/font/local';
 import React from 'react';
 
 import '../styles/globals.css';
@@ -6,6 +7,15 @@ import '../styles/globals.css';
 import MSWProvider from './providers/MSWProvider';
 import ReactQueryProvider from './ReactQueryProvider';
 import MSWProvider from './providers/MSWProvider';
+
+import AppShell from '../components/Layout/AppShell';
+
+const PretendardRegular = localFont({
+  src: './fonts/Pretendard-Regular.woff',
+  variable: '--font-geist-sans',
+  weight: '400',
+  style: 'normal',
+});
 
 export const metadata: Metadata = {
   title: '',
@@ -19,9 +29,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='ko'>
-      <body>
+      <body className={`${PretendardRegular.variable}`}>
         <MSWProvider>
-          <ReactQueryProvider>{children}</ReactQueryProvider>
+          <ReactQueryProvider>
+            <AppShell>{children}</AppShell>
+          </ReactQueryProvider>
         </MSWProvider>
       </body>
     </html>
