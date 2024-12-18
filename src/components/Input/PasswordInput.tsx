@@ -2,50 +2,53 @@
 
 import { Input } from '@nextui-org/react';
 
-import React, { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import Icon from '../Icon/Icon';
 
 const PasswordInput = () => {
-  const [value, setValue] = useState('');
-  const [message, setMessage] = useState('');
-  const [messageColor, setMessageColor] = useState('');
-  const [isVisible, setIsVisible] = React.useState(false);
+  const [password, setPassword] = useState('');
+  const [validationMessage, setValidationMessage] = useState('');
+  const [validationMessageColor, setValidationMessageColor] = useState('');
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
-  const toggleVisibility = () => setIsVisible(!isVisible);
+  const togglePasswordVisibility = () =>
+    setIsPasswordVisible(!isPasswordVisible);
 
-  const validatePassword = (password: string) =>
+  const isPasswordValid = (password: string) =>
     /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{9,}$/.test(
       password,
     );
 
-  const isInvalid = useMemo(() => {
-    if (value === '') return false;
+  const isPasswordInvalid = useMemo(() => {
+    if (password === '') return false;
 
-    return !validatePassword(value);
-  }, [value]);
+    return !isPasswordValid(password);
+  }, [password]);
 
   useEffect(() => {
-    if (isInvalid) {
-      setMessage('영문, 숫자, 특수문자를 포함해 9자 이상 입력해주세요.');
-      setMessageColor('text-system-error');
-    } else if (value) {
-      setMessage('사용 가능한 비밀번호입니다.');
-      setMessageColor('text-system-success');
+    if (isPasswordInvalid) {
+      setValidationMessage(
+        '영문, 숫자, 특수문자를 포함해 9자 이상 입력해주세요.',
+      );
+      setValidationMessageColor('text-system-error');
+    } else if (password) {
+      setValidationMessage('사용 가능한 비밀번호입니다.');
+      setValidationMessageColor('text-system-success');
     } else {
-      setMessage('');
+      setValidationMessage('');
     }
-  }, [value, isInvalid]);
+  }, [password, isPasswordInvalid]);
 
   return (
     <>
       <Input
-        type={isVisible ? 'text' : 'password'}
+        type={isPasswordVisible ? 'text' : 'password'}
         label='비밀번호'
         labelPlacement='outside'
         placeholder='비밀번호를 입력해주세요.'
-        value={value}
-        onValueChange={(newValue) => setValue(newValue)}
+        value={password}
+        onValueChange={(newPassword) => setPassword(newPassword)}
         className='w-80'
         classNames={{
           label: 'custom-label',
@@ -57,29 +60,29 @@ const PasswordInput = () => {
             aria-label='toggle password visibility'
             className='focus:outline-none'
             type='button'
-            onClick={toggleVisibility}
-            disabled={value === ''}
+            onClick={togglePasswordVisibility}
+            disabled={password === ''}
           >
-            {isVisible ? (
+            {isPasswordVisible ? (
               <Icon
                 name='Eye'
                 size='m'
-                className={`text-gray-200 ${value === '' ? 'opacity-50' : ''}`}
+                className={`text-gray-200 ${password === '' ? 'opacity-50' : ''}`}
               />
             ) : (
               <Icon
                 name='EyeOff'
                 size='m'
-                className={`text-gray-200 ${value === '' ? 'opacity-50' : ''}`}
+                className={`text-gray-200 ${password === '' ? 'opacity-50' : ''}`}
               />
             )}
           </button>
         }
       />
 
-      {message && (
+      {validationMessage && (
         <div className='flex items-center mt-2'>
-          {messageColor === 'text-system-success' ? (
+          {validationMessageColor === 'text-system-success' ? (
             <Icon
               name='CheckCircleFilled'
               size='s'
@@ -92,7 +95,9 @@ const PasswordInput = () => {
               className='text-system-error mr-2'
             />
           )}
-          <p className={`button-s ${messageColor}`}>{message}</p>
+          <p className={`button-s ${validationMessageColor}`}>
+            {validationMessage}
+          </p>
         </div>
       )}
     </>

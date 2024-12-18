@@ -9,11 +9,11 @@ import { EmailInputProps } from '@/types/EmailInputProps';
 import Icon from '../Icon/Icon';
 
 const EmailInput = ({ mode }: EmailInputProps) => {
-  const [value, setValue] = useState('');
-  const [message, setMessage] = useState('');
-  const [messageColor, setMessageColor] = useState('');
+  const [email, setEmail] = useState('');
+  const [validationMessage, setValidationMessage] = useState('');
+  const [validationMessageColor, setValidationMessageColor] = useState('');
 
-  const validateEmail = (email: string) =>
+  const isEmailValid = (email: string) =>
     /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
 
   const checkEmailStatus = (email: string) => {
@@ -21,41 +21,41 @@ const EmailInput = ({ mode }: EmailInputProps) => {
 
     if (mode === 'sign-up') {
       if (email === 'used@example.com') {
-        setMessage('이미 가입된 계정입니다.');
-        setMessageColor('text-system-error');
+        setValidationMessage('이미 가입된 계정입니다.');
+        setValidationMessageColor('text-system-error');
       } else {
-        setMessage('사용 가능한 이메일입니다.');
-        setMessageColor('text-system-success');
+        setValidationMessage('사용 가능한 이메일입니다.');
+        setValidationMessageColor('text-system-success');
       }
     } else if (mode === 'sign-in') {
       if (email === 'used@example.com') {
-        setMessage('');
+        setValidationMessage('');
       } else {
-        setMessage('가입되어 있지 않은 이메일입니다.');
-        setMessageColor('text-system-error');
+        setValidationMessage('가입되어 있지 않은 이메일입니다.');
+        setValidationMessageColor('text-system-error');
       }
     }
   };
 
-  const isInvalid = useMemo(() => {
-    if (value === '') return false;
+  const isEmailInvalid = useMemo(() => {
+    if (email === '') return false;
 
-    return !validateEmail(value);
-  }, [value]);
+    return !isEmailValid(email);
+  }, [email]);
 
   useEffect(() => {
-    if (isInvalid) {
-      setMessage('올바른 이메일 형식으로 입력해주세요.');
-      setMessageColor('text-system-error');
-    } else if (value) {
-      checkEmailStatus(value);
+    if (isEmailInvalid) {
+      setValidationMessage('올바른 이메일 형식으로 입력해주세요.');
+      setValidationMessageColor('text-system-error');
+    } else if (email) {
+      checkEmailStatus(email);
     } else {
-      setMessage('');
+      setValidationMessage('');
     }
-  }, [value, isInvalid, mode]);
+  }, [email, isEmailInvalid, mode]);
 
-  const handleEmailFieldClear = () => {
-    setValue('');
+  const clearEmailField = () => {
+    setEmail('');
   };
 
   return (
@@ -65,8 +65,8 @@ const EmailInput = ({ mode }: EmailInputProps) => {
         label='이메일'
         labelPlacement='outside'
         placeholder='이메일을 입력해주세요.'
-        value={value}
-        onValueChange={(newValue) => setValue(newValue)}
+        value={email}
+        onValueChange={(newEmail) => setEmail(newEmail)}
         isInvalid={false}
         className='w-80'
         classNames={{
@@ -74,11 +74,11 @@ const EmailInput = ({ mode }: EmailInputProps) => {
           input: 'placeholder:text-gray-700',
           inputWrapper: ['bg-gray-900', 'rounded-md'],
         }}
-        onClear={handleEmailFieldClear}
+        onClear={clearEmailField}
       />
-      {message && (
+      {validationMessage && (
         <div className='flex items-center mt-2'>
-          {messageColor === 'text-system-success' ? (
+          {validationMessageColor === 'text-system-success' ? (
             <Icon
               name='CheckCircleFilled'
               size='s'
@@ -91,7 +91,9 @@ const EmailInput = ({ mode }: EmailInputProps) => {
               className='text-system-error mr-2'
             />
           )}
-          <p className={`button-s ${messageColor}`}>{message}</p>
+          <p className={`button-s ${validationMessageColor}`}>
+            {validationMessage}
+          </p>
         </div>
       )}
     </>
