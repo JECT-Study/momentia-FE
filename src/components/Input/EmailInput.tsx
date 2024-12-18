@@ -2,13 +2,11 @@
 
 import { Input } from '@nextui-org/react';
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+
+import { EmailInputProps } from '@/types/EmailInputProps';
 
 import Icon from '../Icon/Icon';
-
-export interface EmailInputProps {
-  mode: 'sign-up' | 'sign-in';
-}
 
 const EmailInput = ({ mode }: EmailInputProps) => {
   const [value, setValue] = useState('');
@@ -39,7 +37,7 @@ const EmailInput = ({ mode }: EmailInputProps) => {
     }
   };
 
-  const isInvalid = React.useMemo(() => {
+  const isInvalid = useMemo(() => {
     if (value === '') return false;
 
     return !validateEmail(value);
