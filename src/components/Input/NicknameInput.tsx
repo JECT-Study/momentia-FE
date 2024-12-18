@@ -55,7 +55,7 @@ const NicknameInput = () => {
         maxLength={MAX_NICKNAME_LENGTH}
         value={nickname}
         onValueChange={(newNickname) => setNickname(newNickname)}
-        className='w-80'
+        className='w-78.25'
         classNames={{
           label: 'custom-label',
           input: 'placeholder:text-gray-700',

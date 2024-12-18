@@ -48,7 +48,7 @@ const PasswordInput = () => {
         placeholder='비밀번호를 입력해주세요.'
         value={password}
         onValueChange={(newPassword) => setPassword(newPassword)}
-        className='w-80'
+        className='w-78.25'
         classNames={{
           label: 'custom-label',
           input: 'placeholder:text-gray-700',

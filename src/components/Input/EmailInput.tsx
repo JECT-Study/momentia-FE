@@ -66,7 +66,7 @@ const EmailInput = ({ mode }: EmailInputProps) => {
         value={email}
         onValueChange={(newEmail) => setEmail(newEmail)}
         isInvalid={false}
-        className='w-80'
+        className='w-78.25'
         classNames={{
           label: 'custom-label',
           input: 'placeholder:text-gray-700',
