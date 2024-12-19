@@ -1,8 +1,8 @@
 import { SquareButtonLProps } from '@/types';
 
-import React from 'react';
+import { FC } from 'react';
 
-const SquareButtonL: React.FC<SquareButtonLProps> = ({
+const SquareButtonL: FC<SquareButtonLProps> = ({
   backgroundColor = 'bg-gray-800',
   textColor = 'text-white',
   textSize,

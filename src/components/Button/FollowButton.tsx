@@ -1,12 +1,12 @@
 'use client';
 
-import React, { useState } from 'react';
+import { FC, useState } from 'react';
 
 import { FollowButtonProps } from '@/types/buttons/FollowButtonProps';
 
 import Icon from '../Icon/Icon';
 
-const FollowButton: React.FC<FollowButtonProps> = ({
+const FollowButton: FC<FollowButtonProps> = ({
   backgroundColor = 'bg-gray-900',
   textColor = 'text-white',
   textSize = 'button-s',

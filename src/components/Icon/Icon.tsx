@@ -1,17 +1,17 @@
-import React from 'react';
+import { ComponentType, FC } from 'react';
 
 import { IconProps } from '@/types';
 
 import iconSizes from './iconSizes';
 import { iconsNames } from './iconsNames';
 
-const Icon: React.FC<IconProps> = ({
+const Icon: FC<IconProps> = ({
   name,
   size = 'm',
   className = '',
   onClick,
 }: IconProps) => {
-  const Component = iconsNames[name] as React.ComponentType<{
+  const Component = iconsNames[name] as ComponentType<{
     className?: string;
     onClick?: () => void;
   }>;

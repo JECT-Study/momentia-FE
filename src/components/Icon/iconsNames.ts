@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 
 import AlertCircle from './icons/AlertCircle';
 import AlternateShare from './icons/AlternateShare';
@@ -39,7 +39,7 @@ import UploadShare from './icons/UploadShare';
 
 export const iconsNames: Record<
   string,
-  React.FC<{ className?: string; onClick?: () => void }>
+  FC<{ className?: string; onClick?: () => void }>
 > = {
   AlertCircle,
   AlternateShare,

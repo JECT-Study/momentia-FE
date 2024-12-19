@@ -1,8 +1,8 @@
 import { CategoryButtonProps } from '@/types';
 
-import React from 'react';
+import { FC } from 'react';
 
-const CategoryButton: React.FC<CategoryButtonProps> = ({
+const CategoryButton: FC<CategoryButtonProps> = ({
   backgroundColor = 'bg-gray-800',
   textColor = 'text-gray-300',
   textSize,

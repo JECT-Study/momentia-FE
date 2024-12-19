@@ -1,6 +1,6 @@
-import React from 'react';
+import { FC } from 'react';
 
-const Menu: React.FC<{ className?: string; onClick?: () => void }> = ({
+const Menu: FC<{ className?: string; onClick?: () => void }> = ({
   className,
   onClick,
 }) => {

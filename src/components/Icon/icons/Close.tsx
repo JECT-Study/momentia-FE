@@ -1,6 +1,6 @@
-import React from 'react';
+import { FC } from 'react';
 
-const Close: React.FC<{ className?: string; onClick?: () => void }> = ({
+const Close: FC<{ className?: string; onClick?: () => void }> = ({
   className,
   onClick,
 }) => {

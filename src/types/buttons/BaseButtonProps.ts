@@ -1,17 +1,17 @@
-import React from 'react';
+import { ReactNode } from 'react';
 
 export interface BaseButtonProps {
   backgroundColor: string;
   textColor: string;
   textSize: string;
-  children: React.ReactNode;
+  children: ReactNode;
 
   onClick?: () => void;
   ariaLabel?: string;
   disabled?: boolean;
   loading?: boolean;
 
-  icon?: React.ReactNode;
+  icon?: ReactNode;
   iconPosition?: 'left' | 'right';
 
   type?: 'button' | 'submit' | 'reset';
