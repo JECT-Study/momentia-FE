@@ -1,3 +1,5 @@
+import React from 'react';
+
 import AlertCircle from './icons/AlertCircle';
 import AlternateShare from './icons/AlternateShare';
 import ArrowLeft from './icons/ArrowLeft';
