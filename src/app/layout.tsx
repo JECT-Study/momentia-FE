@@ -1,12 +1,11 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
-import React from 'react';
+import { ReactNode } from 'react';
 
 import '../styles/globals.css';
 
 import MSWProvider from './providers/MSWProvider';
-import ReactQueryProvider from './ReactQueryProvider';
-import MSWProvider from './providers/MSWProvider';
+import ReactQueryProvider from './providers/ReactQueryProvider';
 
 import AppShell from '../components/Layout/AppShell';
 
@@ -25,7 +24,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html lang='ko'>

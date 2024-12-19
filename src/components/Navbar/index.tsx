@@ -16,7 +16,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className='fixed top-0 w-full flex items-center bg-black text-sm text-white px-14 py-5 h-[60px]'>
+      <nav className='fixed top-0 w-full flex items-center bg-black text-white px-14 py-5 h-[60px] z-50'>
         <div className='absolute left-14'>
           <Link href='/'>
             <Image src={logo} alt='모멘티아 로고' width={45} priority />
@@ -36,7 +36,7 @@ const Navbar = () => {
           <Icon name='Notification' size='l' className='text-white' />
           <div className='hidden lg:flex items-center gap-7'>
             <div className='rounded-full bg-white w-8 h-8'></div>
-            <button className='bg-main px-6 py-2 rounded-full text-white'>
+            <button className='button-m bg-main px-6 py-2 rounded-full text-white'>
               작품 업로드
             </button>
             {/* <button className='button-m text-white' >로그인/회원가입</button> */}
@@ -71,7 +71,7 @@ const Navbar = () => {
                 {/* <button className='button-m text-white' >로그인/회원가입</button> */}
                 <p className='button-m text-white'>닉네임</p>
                 <p className='button-m text-gray-500'>momentia@gmail.com</p>
-                <button className='text-main pt-3'>작품 업로드</button>
+                <button className='button-m text-main pt-3'>작품 업로드</button>
               </div>
 
               <div className='border-t border-gray-800 my-6'></div>

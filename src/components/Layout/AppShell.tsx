@@ -6,7 +6,9 @@ import Navbar from '@/components/Navbar';
 import { NextUIProvider } from '@nextui-org/react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 
-const AppShell = ({ children }: { children: React.ReactNode }) => {
+import { ReactNode } from 'react';
+
+const AppShell = ({ children }: { children: ReactNode }) => {
   return (
     <>
       <NextUIProvider>

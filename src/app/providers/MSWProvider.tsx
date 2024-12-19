@@ -12,9 +12,7 @@ const MSWProvider = ({ children }: { children: ReactNode }) => {
       setMswReady(true);
     };
 
-    if (!mswReady) {
-      init();
-    }
+    if (!mswReady) init();
   }, [mswReady]);
 
   return <>{children}</>;
