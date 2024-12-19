@@ -1,9 +1,14 @@
 import { ComponentType, FC } from 'react';
 
-import { IconProps } from '@/types';
-
-import iconSizes from './iconSizes';
+import iconSizes, { IconSize } from './iconSizes';
 import { iconsNames } from './iconsNames';
+
+interface IconProps {
+  name: keyof typeof iconsNames;
+  size?: IconSize;
+  className?: string;
+  onClick?: () => void;
+}
 
 const Icon: FC<IconProps> = ({
   name,

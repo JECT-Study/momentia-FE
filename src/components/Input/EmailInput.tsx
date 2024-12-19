@@ -4,9 +4,11 @@ import { Input } from '@nextui-org/react';
 
 import { useEffect, useState } from 'react';
 
-import { EmailInputProps } from '@/types';
-
 import Icon from '../Icon/Icon';
+
+interface EmailInputProps {
+  mode: 'sign-up' | 'sign-in';
+}
 
 const EmailInput = ({ mode }: EmailInputProps) => {
   const [email, setEmail] = useState('');
