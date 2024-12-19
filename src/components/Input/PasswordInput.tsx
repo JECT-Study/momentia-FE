@@ -2,7 +2,7 @@
 
 import { Input } from '@nextui-org/react';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Icon from '../Icon/Icon';
 
@@ -12,18 +12,12 @@ const PasswordInput = () => {
   const [validationMessageColor, setValidationMessageColor] = useState('');
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
-  const togglePasswordVisibility = () =>
-    setIsPasswordVisible(!isPasswordVisible);
-
   const isPasswordValid = (password: string) =>
     /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{9,}$/.test(
       password,
     );
 
-  const isPasswordInvalid = useMemo(() => {
-    if (password === '') return false;
-    return !isPasswordValid(password);
-  }, [password]);
+  const isPasswordInvalid = password !== '' && !isPasswordValid(password);
 
   useEffect(() => {
     if (isPasswordInvalid) {
@@ -38,6 +32,9 @@ const PasswordInput = () => {
       setValidationMessage('');
     }
   }, [password, isPasswordInvalid]);
+
+  const togglePasswordVisibility = () =>
+    setIsPasswordVisible(!isPasswordVisible);
 
   return (
     <>

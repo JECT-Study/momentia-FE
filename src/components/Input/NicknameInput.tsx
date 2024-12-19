@@ -2,7 +2,7 @@
 
 import { Input } from '@nextui-org/react';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Icon from '../Icon/Icon';
 
@@ -16,10 +16,9 @@ const NicknameInput = () => {
   const isNicknameValid = (nickname: string) =>
     /^[\u3131-\u318E가-힣A-Za-z0-9]+$/.test(nickname);
 
-  const isNicknameInvalid = useMemo(() => {
-    if (nickname === '') return false;
-    return !isNicknameValid(nickname) || nickname.length > MAX_NICKNAME_LENGTH;
-  }, [nickname]);
+  const isNicknameInvalid =
+    (nickname !== '' && !isNicknameValid(nickname)) ||
+    nickname.length > MAX_NICKNAME_LENGTH;
 
   useEffect(() => {
     if (nickname === '모멘티아') {

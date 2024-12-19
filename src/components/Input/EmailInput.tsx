@@ -2,9 +2,9 @@
 
 import { Input } from '@nextui-org/react';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import { EmailInputProps } from '@/types/EmailInputProps';
+import { EmailInputProps } from '@/types';
 
 import Icon from '../Icon/Icon';
 
@@ -15,6 +15,8 @@ const EmailInput = ({ mode }: EmailInputProps) => {
 
   const isEmailValid = (email: string) =>
     /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
+
+  const isEmailInvalid = email !== '' && !isEmailValid(email);
 
   const checkEmailStatus = (email: string) => {
     // TODO: 이메일 상태 확인 (API 호출 로직 추가)
@@ -36,11 +38,6 @@ const EmailInput = ({ mode }: EmailInputProps) => {
     }
   };
 
-  const isEmailInvalid = useMemo(() => {
-    if (email === '') return false;
-    return !isEmailValid(email);
-  }, [email]);
-
   useEffect(() => {
     if (isEmailInvalid) {
       setValidationMessage('올바른 이메일 형식으로 입력해주세요.');
@@ -50,7 +47,7 @@ const EmailInput = ({ mode }: EmailInputProps) => {
     } else {
       setValidationMessage('');
     }
-  }, [email, isEmailInvalid, mode]);
+  }, [email, isEmailInvalid]);
 
   const clearEmailField = () => {
     setEmail('');
