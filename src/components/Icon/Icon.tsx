@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { IconProps } from '@/types/IconProps';
+import { IconProps } from '@/types';
 
 import iconSizes from './iconSizes';
 import { iconsNames } from './iconsNames';
