@@ -5,8 +5,7 @@ import React from 'react';
 import '../styles/globals.css';
 
 import MSWProvider from './providers/MSWProvider';
-import ReactQueryProvider from './ReactQueryProvider';
-import MSWProvider from './providers/MSWProvider';
+import ReactQueryProvider from './providers/ReactQueryProvider';
 
 import AppShell from '../components/Layout/AppShell';
 

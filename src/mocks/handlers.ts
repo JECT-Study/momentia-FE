@@ -1,10 +1,9 @@
-import { USER } from '@/constants/API';
-import { http, HttpResponse } from 'msw';
+// import { USER } from '@/constants/API';
 
 export const handlers = [
-  http.get(USER.validateEmail, () => {
-    return new HttpResponse(null, {
-      status: 204,
-    });
-  }),
+  // http.get(USER.validateEmail, () => {
+  //   return new HttpResponse(null, {
+  //     status: 204,
+  //   });
+  // }),
 ];
