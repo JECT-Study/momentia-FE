@@ -22,15 +22,7 @@ const EmailInput = ({ mode }: EmailInputProps) => {
 
   const checkEmailStatus = (email: string) => {
     // TODO: 이메일 상태 확인 (API 호출 로직 추가)
-    if (mode === 'sign-up') {
-      if (email === 'used@example.com') {
-        setValidationMessage('이미 가입된 계정입니다.');
-        setValidationMessageColor('text-system-error');
-      } else {
-        setValidationMessage('사용 가능한 이메일입니다.');
-        setValidationMessageColor('text-system-success');
-      }
-    } else if (mode === 'sign-in') {
+    if (mode === 'sign-in') {
       if (email === 'used@example.com') {
         setValidationMessage('');
       } else {
