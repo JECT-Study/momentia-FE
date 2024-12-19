@@ -13,11 +13,8 @@ const NicknameInput = () => {
 
   const MAX_NICKNAME_LENGTH = 10;
 
-  const isNicknameValid = (nickname: string) =>
-    /^[\u3131-\u318E가-힣A-Za-z0-9]+$/.test(nickname);
-
-  const isNicknameInvalid =
-    (nickname !== '' && !isNicknameValid(nickname)) ||
+  const isNicknameInvalid = (nickname: string) =>
+    (nickname !== '' && !/^[\u3131-\u318E가-힣A-Za-z0-9]+$/.test(nickname)) ||
     nickname.length > MAX_NICKNAME_LENGTH;
 
   useEffect(() => {
@@ -25,7 +22,7 @@ const NicknameInput = () => {
       // TODO: 닉네임 상태 확인 (API 호출 로직 추가)
       setValidationMessage('중복된 닉네임이 존재합니다.');
       setValidationMessageColor('text-system-error');
-    } else if (isNicknameInvalid) {
+    } else if (isNicknameInvalid(nickname)) {
       setValidationMessage('사용할 수 없는 문자 또는 길이를 초과했습니다.');
       setValidationMessageColor('text-system-error');
     } else if (nickname) {
@@ -34,7 +31,7 @@ const NicknameInput = () => {
     } else {
       setValidationMessage('');
     }
-  }, [nickname, isNicknameInvalid]);
+  }, [nickname]);
 
   const currentNicknameLength = nickname.length;
   const nicknameLengthColor =

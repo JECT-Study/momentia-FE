@@ -13,10 +13,12 @@ const EmailInput = ({ mode }: EmailInputProps) => {
   const [validationMessage, setValidationMessage] = useState('');
   const [validationMessageColor, setValidationMessageColor] = useState('');
 
-  const isEmailValid = (email: string) =>
-    /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
+  const isEmailInvalid = (email: string) =>
+    email !== '' && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
 
-  const isEmailInvalid = email !== '' && !isEmailValid(email);
+  const clearEmailField = () => {
+    setEmail('');
+  };
 
   const checkEmailStatus = (email: string) => {
     // TODO: 이메일 상태 확인 (API 호출 로직 추가)
@@ -39,7 +41,7 @@ const EmailInput = ({ mode }: EmailInputProps) => {
   };
 
   useEffect(() => {
-    if (isEmailInvalid) {
+    if (isEmailInvalid(email)) {
       setValidationMessage('올바른 이메일 형식으로 입력해주세요.');
       setValidationMessageColor('text-system-error');
     } else if (email) {
@@ -47,11 +49,7 @@ const EmailInput = ({ mode }: EmailInputProps) => {
     } else {
       setValidationMessage('');
     }
-  }, [email, isEmailInvalid]);
-
-  const clearEmailField = () => {
-    setEmail('');
-  };
+  }, [email]);
 
   return (
     <>
@@ -71,6 +69,7 @@ const EmailInput = ({ mode }: EmailInputProps) => {
         }}
         onClear={clearEmailField}
       />
+
       {validationMessage && (
         <div className='flex items-center mt-2'>
           {validationMessageColor === 'text-system-success' ? (

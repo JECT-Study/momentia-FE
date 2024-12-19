@@ -12,15 +12,14 @@ const PasswordInput = () => {
   const [validationMessageColor, setValidationMessageColor] = useState('');
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
-  const isPasswordValid = (password: string) =>
-    /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{9,}$/.test(
+  const isPasswordInvalid = (password: string) =>
+    password !== '' &&
+    !/^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{9,}$/.test(
       password,
     );
 
-  const isPasswordInvalid = password !== '' && !isPasswordValid(password);
-
   useEffect(() => {
-    if (isPasswordInvalid) {
+    if (isPasswordInvalid(password)) {
       setValidationMessage(
         '영문, 숫자, 특수문자를 포함해 9자 이상 입력해주세요.',
       );
@@ -31,7 +30,7 @@ const PasswordInput = () => {
     } else {
       setValidationMessage('');
     }
-  }, [password, isPasswordInvalid]);
+  }, [password]);
 
   const togglePasswordVisibility = () =>
     setIsPasswordVisible(!isPasswordVisible);
