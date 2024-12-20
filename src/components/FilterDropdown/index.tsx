@@ -1,4 +1,5 @@
 import { FC, useState } from 'react';
+import Icon from '../Icon/Icon';
 
 interface FilterDropdownProps {
   options: string[];
@@ -27,8 +28,13 @@ const FilterDropdown: FC<FilterDropdownProps> = ({
         onClick={() => setIsOpen(!isOpen)}
       >
         {selected}
-        {/* gray-300 */}
-        <span>{isOpen ? '▲' : '▼'}</span>
+        <span className='text-gray-300'>
+          {isOpen ? (
+            <Icon name='ChevronUp' size='m' />
+          ) : (
+            <Icon name='ChevronDown' size='m' />
+          )}
+        </span>
       </button>
 
       {isOpen && (
