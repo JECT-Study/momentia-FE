@@ -42,6 +42,7 @@ const FilterDropdown: FC<FilterDropdownProps> = ({
       <button
         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
         aria-label={`Currently selected filter: ${selected}`}
+        aria-expanded={isDropdownOpen}
         className='flex items-center justify-between w-[149px] h-[44px] px-[23px] py-[10px]
         text-white bg-gray-900 rounded-[5px] gap-[36px] shadow-sm
         hover:bg-gray-800 focus:outline-none'
@@ -57,12 +58,16 @@ const FilterDropdown: FC<FilterDropdownProps> = ({
       </button>
 
       {isDropdownOpen && (
-        <div className='w-full mt-3 bg-gray-900 rounded-[5px] shadow-lg'>
+        <div
+          className='w-full mt-3 bg-gray-900 rounded-[5px] shadow-lg'
+          role='menu'
+        >
           <ul className='py-1'>
             {options.map((option, index) => (
               <li
                 key={index}
                 onClick={() => handleSelect(option)}
+                aria-current={option === selected ? 'true' : undefined}
                 className={`block w-[149px] h-[44px] px-[23px] py-[10px] text-gray-400 cursor-pointer hover:bg-gray-800`}
               >
                 {option}
