@@ -68,7 +68,7 @@ const Pagination: FC<PaginationProps> = ({
             key={page}
             onClick={() => onPageChange(page)}
             aria-current={page === currentPage ? 'page' : undefined}
-            className={`p-3 w-[46px] rounded-full transition-colors ${
+            className={`button-s p-3 w-[46px] rounded-full transition-colors ${
               page === currentPage
                 ? 'bg-main text-white'
                 : 'text-gray-600 hover:bg-gray-900'
