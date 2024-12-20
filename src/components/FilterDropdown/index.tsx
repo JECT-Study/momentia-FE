@@ -1,4 +1,7 @@
-import { FC, useState } from 'react';
+'use client';
+
+import { FC, useEffect, useRef, useState } from 'react';
+
 import Icon from '../Icon/Icon';
 
 interface FilterDropdownProps {
@@ -12,17 +15,32 @@ const FilterDropdown: FC<FilterDropdownProps> = ({
   selected,
   onChange,
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const handleSelect = (option: string) => {
     onChange(option);
-    setIsOpen(false);
+    setIsDropdownOpen(false);
   };
 
   return (
-    <div className='body2 relative inline-block text-left'>
+    <div className='body2 relative inline-block text-left' ref={dropdownRef}>
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
         aria-label={`Currently selected filter: ${selected}`}
         className='flex items-center justify-between w-[149px] h-[44px] px-[23px] py-[10px]
         text-white bg-gray-900 rounded-[5px] gap-[36px] shadow-sm
@@ -30,7 +48,7 @@ const FilterDropdown: FC<FilterDropdownProps> = ({
       >
         {selected}
         <span className='text-gray-300'>
-          {isOpen ? (
+          {isDropdownOpen ? (
             <Icon name='ChevronUp' size='m' />
           ) : (
             <Icon name='ChevronDown' size='m' />
@@ -38,7 +56,7 @@ const FilterDropdown: FC<FilterDropdownProps> = ({
         </span>
       </button>
 
-      {isOpen && (
+      {isDropdownOpen && (
         <div className='w-full mt-3 bg-gray-900 rounded-[5px] shadow-lg'>
           <ul className='py-1'>
             {options.map((option, index) => (
