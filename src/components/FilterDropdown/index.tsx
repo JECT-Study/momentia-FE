@@ -32,7 +32,7 @@ const FilterDropdown: FC<FilterDropdownProps> = ({
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const handleSelect = (option: string) => {
+  const handleOptionSelect = (option: string) => {
     onChange(option);
     setIsDropdownOpen(false);
   };
@@ -66,7 +66,7 @@ const FilterDropdown: FC<FilterDropdownProps> = ({
             {options.map((option, index) => (
               <li
                 key={index}
-                onClick={() => handleSelect(option)}
+                onClick={() => handleOptionSelect(option)}
                 aria-current={option === selected ? 'true' : undefined}
                 className={`block w-[149px] h-[44px] px-[23px] py-[10px] text-gray-400 cursor-pointer hover:bg-gray-800`}
               >
