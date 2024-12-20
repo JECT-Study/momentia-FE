@@ -16,22 +16,25 @@ const Pagination: FC<PaginationProps> = ({
   const isFirstPage = currentPage === 1;
   const isLastPage = currentPage === totalPages;
 
-  const pageRangeCalculation = (
+  const calculateVisiblePages = (
     currentPage: number,
     totalPages: number,
-    maximumRange: number,
+    maxVisiblePages: number,
   ): number[] => {
-    const start = Math.max(1, currentPage - Math.floor(maximumRange / 2));
-    const end = Math.min(totalPages, start + maximumRange - 1);
-    const adjustedStart = Math.max(1, end - maximumRange + 1);
+    const startPage = Math.max(
+      1,
+      currentPage - Math.floor(maxVisiblePages / 2),
+    );
+    const endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+    const adjustedStartPage = Math.max(1, endPage - maxVisiblePages + 1);
 
     return Array.from(
-      { length: end - adjustedStart + 1 },
-      (_, i) => adjustedStart + i,
+      { length: endPage - adjustedStartPage + 1 },
+      (_, i) => adjustedStartPage + i,
     );
   };
 
-  const visiblePages = pageRangeCalculation(currentPage, totalPages, 5);
+  const visiblePages = calculateVisiblePages(currentPage, totalPages, 5);
 
   return (
     <div className='flex items-center justify-center gap-6'>
