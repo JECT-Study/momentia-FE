@@ -24,6 +24,7 @@ const useGetValidateNickName = (nickName: string) => {
   const { data, isLoading } = useQuery({
     queryKey: [USER.validateNickname, nickName],
     queryFn: () => getValidateNickname(nickName),
+    enabled: nickName.trim() !== '',
   });
 
   const hasData = !!data;
@@ -35,4 +36,4 @@ const useGetValidateNickName = (nickName: string) => {
   return { isLoading, ...validInfo };
 };
 
-export default getValidateNickname;
+export default useGetValidateNickName;

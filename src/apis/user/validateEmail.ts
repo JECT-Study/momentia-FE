@@ -20,10 +20,11 @@ const getValidateEmail = async (email: string): Promise<ValidateResponse> => {
   };
 };
 
-const useGetValidateEmail = (email: string) => {
+const useGetValidateEmail = (email: string, mode: string) => {
   const { data, isLoading } = useQuery({
     queryKey: [USER.validateEmail, email],
     queryFn: () => getValidateEmail(email),
+    enabled: email.trim() !== '' && mode === 'sign-up',
   });
 
   const hasData = !!data;
