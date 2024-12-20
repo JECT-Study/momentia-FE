@@ -22,10 +22,11 @@ const FilterDropdown: FC<FilterDropdownProps> = ({
   return (
     <div className='body2 relative inline-block text-left'>
       <button
+        onClick={() => setIsOpen(!isOpen)}
+        aria-label={`Currently selected filter: ${selected}`}
         className='flex items-center justify-between w-[149px] h-[44px] px-[23px] py-[10px]
         text-white bg-gray-900 rounded-[5px] gap-[36px] shadow-sm
-        hover:bg-gray-700 focus:outline-none'
-        onClick={() => setIsOpen(!isOpen)}
+        hover:bg-gray-800 focus:outline-none'
       >
         {selected}
         <span className='text-gray-300'>
@@ -44,7 +45,7 @@ const FilterDropdown: FC<FilterDropdownProps> = ({
               <li
                 key={index}
                 onClick={() => handleSelect(option)}
-                className={`block w-[149px] h-[44px] px-[23px] py-[10px] text-gray-400 cursor-pointer hover:bg-gray-700`}
+                className={`block w-[149px] h-[44px] px-[23px] py-[10px] text-gray-400 cursor-pointer hover:bg-gray-800`}
               >
                 {option}
               </li>
