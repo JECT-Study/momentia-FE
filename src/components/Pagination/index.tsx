@@ -16,6 +16,23 @@ const Pagination: FC<PaginationProps> = ({
   const isFirstPage = currentPage === 1;
   const isLastPage = currentPage === totalPages;
 
+  const pageRangeCalculation = (
+    currentPage: number,
+    totalPages: number,
+    maximumRange: number,
+  ): number[] => {
+    const start = Math.max(1, currentPage - Math.floor(maximumRange / 2));
+    const end = Math.min(totalPages, start + maximumRange - 1);
+    const adjustedStart = Math.max(1, end - maximumRange + 1);
+
+    return Array.from(
+      { length: end - adjustedStart + 1 },
+      (_, i) => adjustedStart + i,
+    );
+  };
+
+  const visiblePages = pageRangeCalculation(currentPage, totalPages, 5);
+
   return (
     <div className='flex items-center justify-center gap-6'>
       <div className='flex gap-1' id='first-previous-buttons'>
@@ -43,12 +60,12 @@ const Pagination: FC<PaginationProps> = ({
       </div>
 
       <div className='flex gap-1' id='number-buttons'>
-        {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+        {visiblePages.map((page) => (
           <button
             key={page}
             onClick={() => onPageChange(page)}
             aria-current={page === currentPage ? 'page' : undefined}
-            className={`p-3 w-[46] rounded-full transition-colors ${
+            className={`p-3 w-[46px] rounded-full transition-colors ${
               page === currentPage
                 ? 'bg-main text-white'
                 : 'text-gray-600 hover:bg-gray-900'
