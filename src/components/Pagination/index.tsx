@@ -1,5 +1,3 @@
-import { FC } from 'react';
-
 import Icon from '../Icon/Icon';
 
 interface PaginationProps {
@@ -8,11 +6,11 @@ interface PaginationProps {
   onPageChange: (page: number) => void;
 }
 
-const Pagination: FC<PaginationProps> = ({
+const Pagination = ({
   currentPage,
   totalPages,
   onPageChange,
-}) => {
+}: PaginationProps) => {
   const isFirstPage = currentPage === 1;
   const isLastPage = currentPage === totalPages;
 

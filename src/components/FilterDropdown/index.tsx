@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import Icon from '../Icon/Icon';
 
@@ -10,11 +10,11 @@ interface FilterDropdownProps {
   onChange: (value: string) => void;
 }
 
-const FilterDropdown: FC<FilterDropdownProps> = ({
+const FilterDropdown = ({
   options,
   selected,
   onChange,
-}) => {
+}: FilterDropdownProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
