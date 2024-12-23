@@ -39,10 +39,9 @@ const Pagination = ({
       visiblePages.unshift(1);
       if (groupStartPage > 2) visiblePages.splice(1, 0, -1);
     }
+
     if (groupEndPage < totalPages) {
-      if (groupEndPage < totalPages - 1) {
-        visiblePages.push(-1);
-      }
+      if (groupEndPage < totalPages - 1) visiblePages.push(-1);
       visiblePages.push(totalPages);
     }
 
