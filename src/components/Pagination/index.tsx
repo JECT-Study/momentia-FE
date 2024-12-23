@@ -23,21 +23,24 @@ const Pagination = ({
       return Array.from({ length: totalPages }, (_, i) => i + 1);
     }
 
-    const currentGroup = Math.ceil(currentPage / maxVisiblePages);
-    const startPage = (currentGroup - 1) * maxVisiblePages + 1;
-    const endPage = Math.min(currentGroup * maxVisiblePages, totalPages);
-
-    const visiblePages = Array.from(
-      { length: endPage - startPage + 1 },
-      (_, i) => startPage + i,
+    const currentPageGroup = Math.ceil(currentPage / maxVisiblePages);
+    const groupStartPage = (currentPageGroup - 1) * maxVisiblePages + 1;
+    const groupEndPage = Math.min(
+      currentPageGroup * maxVisiblePages,
+      totalPages,
     );
 
-    if (startPage > 1) {
+    const visiblePages = Array.from(
+      { length: groupEndPage - groupStartPage + 1 },
+      (_, i) => groupStartPage + i,
+    );
+
+    if (groupStartPage > 1) {
       visiblePages.unshift(1);
-      if (startPage > 2) visiblePages.splice(1, 0, -1);
+      if (groupStartPage > 2) visiblePages.splice(1, 0, -1);
     }
-    if (endPage < totalPages) {
-      if (endPage < totalPages - 1) {
+    if (groupEndPage < totalPages) {
+      if (groupEndPage < totalPages - 1) {
         visiblePages.push(-1);
       }
       visiblePages.push(totalPages);
