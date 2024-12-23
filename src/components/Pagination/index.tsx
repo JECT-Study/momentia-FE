@@ -19,17 +19,31 @@ const Pagination = ({
     totalPages: number,
     maxVisiblePages: number,
   ): number[] => {
-    const startPage = Math.max(
-      1,
-      currentPage - Math.floor(maxVisiblePages / 2),
-    );
-    const endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
-    const adjustedStartPage = Math.max(1, endPage - maxVisiblePages + 1);
+    if (totalPages <= maxVisiblePages) {
+      return Array.from({ length: totalPages }, (_, i) => i + 1);
+    }
 
-    return Array.from(
-      { length: endPage - adjustedStartPage + 1 },
-      (_, i) => adjustedStartPage + i,
+    const currentGroup = Math.ceil(currentPage / maxVisiblePages);
+    const startPage = (currentGroup - 1) * maxVisiblePages + 1;
+    const endPage = Math.min(currentGroup * maxVisiblePages, totalPages);
+
+    const visiblePages = Array.from(
+      { length: endPage - startPage + 1 },
+      (_, i) => startPage + i,
     );
+
+    if (startPage > 1) {
+      visiblePages.unshift(1);
+      if (startPage > 2) visiblePages.splice(1, 0, -1);
+    }
+    if (endPage < totalPages) {
+      if (endPage < totalPages - 1) {
+        visiblePages.push(-1);
+      }
+      visiblePages.push(totalPages);
+    }
+
+    return visiblePages;
   };
 
   const visiblePages = calculateVisiblePages(currentPage, totalPages, 5);
@@ -61,20 +75,27 @@ const Pagination = ({
       </div>
 
       <div className='flex gap-1' id='number-buttons'>
-        {visiblePages.map((page) => (
-          <button
-            key={page}
-            onClick={() => onPageChange(page)}
-            aria-current={page === currentPage ? 'page' : undefined}
-            className={`button-s p-3 w-[46px] rounded-full transition-colors ${
-              page === currentPage
-                ? 'bg-main text-white'
-                : 'text-gray-600 hover:bg-gray-900'
-            }`}
-          >
-            {page}
-          </button>
-        ))}
+        {visiblePages.map((page, index) =>
+          page === -1 ? (
+            <span key={`ellipsis-${index}`} className='p-3 text-gray-500'>
+              ...
+            </span>
+          ) : (
+            <button
+              key={page}
+              onClick={() => onPageChange(page)}
+              aria-current={page === currentPage ? 'page' : undefined}
+              className={`button-s flex flex-col justify-center items-center rounded-full
+                w-[46px] h-[46px] p-[13px 7px] gap-[10px] ${
+                  page === currentPage
+                    ? 'text-white bg-main'
+                    : 'text-gray-600 hover:bg-gray-900'
+                }`}
+            >
+              {page}
+            </button>
+          ),
+        )}
       </div>
 
       <div className='flex gap-1' id='next-last-buttons'>
