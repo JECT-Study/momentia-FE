@@ -9,11 +9,16 @@ import ReactQueryProvider from './providers/ReactQueryProvider';
 
 import AppShell from '../components/Layout/AppShell';
 
-const PretendardRegular = localFont({
-  src: './fonts/Pretendard-Regular.woff',
-  variable: '--font-geist-sans',
-  weight: '400',
-  style: 'normal',
+const Pretendard = localFont({
+  src: [
+    { path: './fonts/Pretendard-Regular.woff', weight: '400', style: 'normal' },
+    { path: './fonts/Pretendard-Medium.woff', weight: '500', style: 'normal' },
+    {
+      path: './fonts/Pretendard-SemiBold.woff',
+      weight: '600',
+      style: 'normal',
+    },
+  ],
 });
 
 export const metadata: Metadata = {
@@ -21,14 +26,14 @@ export const metadata: Metadata = {
   description: '',
 };
 
-export default function RootLayout({
+const RootLayout = ({
   children,
 }: Readonly<{
   children: ReactNode;
-}>) {
+}>) => {
   return (
     <html lang='ko'>
-      <body className={`${PretendardRegular.variable}`}>
+      <body className={`${Pretendard}`}>
         <MSWProvider>
           <ReactQueryProvider>
             <AppShell>{children}</AppShell>
@@ -37,4 +42,6 @@ export default function RootLayout({
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;

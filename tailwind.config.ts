@@ -38,9 +38,6 @@ export default {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['var(--font-geist-sans)'],
-      },
       colors,
       spacing: {
         '4.5': '18px',
