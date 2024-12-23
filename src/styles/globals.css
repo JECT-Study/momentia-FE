@@ -18,7 +18,7 @@
   }
 
   h1 {
-    font-size: 1.75rem; /* 28px */
+    font-size: 2rem; /* 32px */
   }
 
   h2 {
@@ -38,18 +38,18 @@
     font-size: 1.25rem; /* 20px */
   }
 
-  .subtitle2 {
+  .body1,
+  .subtitle2,
+  .button-m {
     font-size: 1.125rem; /* 18px */
   }
 
-  .body1,
+  .body2,
   .placeholder,
-  .custom-label,
-  .button-m {
+  .custom-label {
     font-size: 1rem; /* 16px */
   }
 
-  .body2,
   .small-chip,
   .button-s {
     font-size: 0.875rem; /* 14px */
