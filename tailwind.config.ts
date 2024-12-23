@@ -38,6 +38,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-montserrat)'],
+      },
       colors,
       spacing: {
         '4.5': '18px',

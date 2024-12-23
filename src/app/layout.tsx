@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import localFont from 'next/font/local';
 import { ReactNode } from 'react';
 
 import '../styles/globals.css';
@@ -9,17 +8,7 @@ import ReactQueryProvider from './providers/ReactQueryProvider';
 
 import AppShell from '../components/Layout/AppShell';
 
-const Pretendard = localFont({
-  src: [
-    { path: './fonts/Pretendard-Regular.woff', weight: '400', style: 'normal' },
-    { path: './fonts/Pretendard-Medium.woff', weight: '500', style: 'normal' },
-    {
-      path: './fonts/Pretendard-SemiBold.woff',
-      weight: '600',
-      style: 'normal',
-    },
-  ],
-});
+import { montserrat, pretendard } from './fonts';
 
 export const metadata: Metadata = {
   title: '',
@@ -33,7 +22,7 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang='ko'>
-      <body className={`${Pretendard}`}>
+      <body className={`${pretendard} ${montserrat.variable}`}>
         <MSWProvider>
           <ReactQueryProvider>
             <AppShell>{children}</AppShell>
