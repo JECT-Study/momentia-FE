@@ -77,8 +77,8 @@ const Pagination = ({
       <div className='flex gap-1' id='number-buttons'>
         {visiblePages.map((page, index) =>
           page === -1 ? (
-            <span key={`ellipsis-${index}`} className='p-3 text-gray-500'>
-              ...
+            <span key={`ellipsis-${index}`} className='p-3'>
+              <Icon name='MoreHorizontal' size='s' className='text-gray-600' />
             </span>
           ) : (
             <button
