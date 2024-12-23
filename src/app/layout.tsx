@@ -4,6 +4,7 @@ import { ReactNode } from 'react';
 
 import '../styles/globals.css';
 
+import KakaoProvider from './providers/KakaoProvider';
 import MSWProvider from './providers/MSWProvider';
 import ReactQueryProvider from './providers/ReactQueryProvider';
 
@@ -34,6 +35,7 @@ export default function RootLayout({
             <AppShell>{children}</AppShell>
           </ReactQueryProvider>
         </MSWProvider>
+        <KakaoProvider />
       </body>
     </html>
   );
