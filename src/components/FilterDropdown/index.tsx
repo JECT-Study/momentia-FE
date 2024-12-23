@@ -48,11 +48,11 @@ const FilterDropdown = ({
         hover:bg-gray-800 focus:outline-none'
       >
         {selected}
-        <span className='text-gray-300'>
+        <span className='text-gray-700'>
           {isDropdownOpen ? (
-            <Icon name='ChevronUp' size='m' />
+            <Icon name='Dropup' size='m' />
           ) : (
-            <Icon name='ChevronDown' size='m' />
+            <Icon name='Dropdown' size='m' />
           )}
         </span>
       </button>

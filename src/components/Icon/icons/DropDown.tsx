@@ -1,4 +1,4 @@
-const DropDown = ({ className }: { className?: string }) => {
+const Dropdown = ({ className }: { className?: string }) => {
   return (
     <svg
       className={className}
@@ -14,4 +14,4 @@ const DropDown = ({ className }: { className?: string }) => {
   );
 };
 
-export default DropDown;
+export default Dropdown;

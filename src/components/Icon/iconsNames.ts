@@ -18,8 +18,8 @@ import Close from './icons/Close';
 import CloseCircleFilled from './icons/CloseCircleFilled';
 import Controller from './icons/Controller';
 import DisabledBookmark from './icons/DisabledBookmark';
-import DropDown from './icons/DropDown';
-import DropUp from './icons/DropUp';
+import Dropdown from './icons/Dropdown';
+import Dropup from './icons/Dropup';
 import EditNotePencil from './icons/EditNotePencil';
 import EditPencil from './icons/EditPencil';
 import ExternalLink from './icons/ExternalLink';
@@ -87,8 +87,8 @@ export const iconsNames: Record<
   Search,
   Star,
   UploadShare,
-  DropUp,
-  DropDown,
+  Dropup,
+  Dropdown,
   Lock,
   Unlock,
 };
