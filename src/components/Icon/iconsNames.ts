@@ -18,6 +18,8 @@ import Close from './icons/Close';
 import CloseCircleFilled from './icons/CloseCircleFilled';
 import Controller from './icons/Controller';
 import DisabledBookmark from './icons/DisabledBookmark';
+import Dropdown from './icons/Dropdown';
+import Dropup from './icons/Dropup';
 import EditNotePencil from './icons/EditNotePencil';
 import EditPencil from './icons/EditPencil';
 import ExternalLink from './icons/ExternalLink';
@@ -26,6 +28,7 @@ import EyeOff from './icons/EyeOff';
 import Heart from './icons/Heart';
 import HeartFilled from './icons/HeartFilled';
 import Image from './icons/Image';
+import Lock from './icons/Lock';
 import Menu from './icons/Menu';
 import Message from './icons/Message';
 import MoreHorizontal from './icons/MoreHorizontal';
@@ -35,6 +38,7 @@ import Person from './icons/Person';
 import Plus from './icons/Plus';
 import Search from './icons/Search';
 import Star from './icons/Star';
+import Unlock from './icons/Unlock';
 import UploadShare from './icons/UploadShare';
 
 export const iconsNames: Record<
@@ -83,4 +87,8 @@ export const iconsNames: Record<
   Search,
   Star,
   UploadShare,
+  Dropup,
+  Dropdown,
+  Lock,
+  Unlock,
 };

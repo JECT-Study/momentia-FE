@@ -22,7 +22,7 @@ const EmailInput = ({ mode }: EmailInputProps) => {
     setEmail('');
   };
 
-  const checkEmailStatus = (email: string) => {
+  const validateEmail = (email: string) => {
     // TODO: 이메일 상태 확인 (API 호출 로직 추가)
     if (mode === 'sign-in') {
       if (email === 'used@example.com') {
@@ -39,7 +39,7 @@ const EmailInput = ({ mode }: EmailInputProps) => {
       setValidationMessage('올바른 이메일 형식으로 입력해주세요.');
       setValidationMessageColor('text-system-error');
     } else if (email) {
-      checkEmailStatus(email);
+      validateEmail(email);
     } else {
       setValidationMessage('');
     }
