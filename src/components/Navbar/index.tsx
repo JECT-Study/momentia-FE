@@ -37,10 +37,7 @@ const Navbar = () => {
             <Icon name='Notification' size='l' className='text-white' />
             <div className='hidden lg:flex items-center gap-7'>
               <div className='rounded-full bg-white w-8 h-8 flex-shrink-0'></div>
-              <button
-                className='button-m bg-main px-6 py-2 rounded-full text-white flex-shrink-0'
-                style={{ whiteSpace: 'nowrap' }}
-              >
+              <button className='button-m bg-main px-6 py-2 rounded-full text-white flex-shrink-0'>
                 작품 업로드
               </button>
               {/* <button className='button-m text-white' >로그인/회원가입</button> */}
